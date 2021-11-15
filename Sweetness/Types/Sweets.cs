@@ -10,7 +10,10 @@ namespace Sweetness.Types
     {
         protected byte _weight;
 
-        //абстрактный метод случайного создания сладости
+        //метод случайного создания сладости
         protected abstract void CreateSweets();
+
+        //метод выдачи информации
+        public abstract string GetInformation();
     }
 }

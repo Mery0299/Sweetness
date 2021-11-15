@@ -6,26 +6,12 @@ using System.Threading.Tasks;
 
 namespace Sweetness.Types
 {
-    public enum TypeChocolate
-    {
-        Dark,
-        Milky
-    }
-
-    public enum FillingChocolade
-    {
-        Marmelade,
-        Nougat,
-        Waffle,
-        Berry,
-        Empty
-    }
 
     public class Chocolate : Sweets
     {
-        private FillingChocolade _filling;
+        private string _filling;
         private byte _countTiles;
-        private TypeChocolate _typeChocolate;
+        private string _typeChocolate;
 
         public Chocolate()
         {
@@ -42,31 +28,36 @@ namespace Sweetness.Types
             switch (random.Next() % 5)
             {
                 case 0:
-                    _filling = FillingChocolade.Marmelade;
+                    _filling = "мармеладная";
                     break;
                 case 1:
-                    _filling = FillingChocolade.Nougat;
+                    _filling = "нуга";
                     break;
                 case 2:
-                    _filling = FillingChocolade.Waffle;
+                    _filling = "вафля";
                     break;
                 case 3:
-                    _filling = FillingChocolade.Berry;
+                    _filling = "ягодная";
                     break;
                 case 4:
-                    _filling = FillingChocolade.Empty;
+                    _filling = "отсутвует";
                     break;
             }
 
             switch (random.Next() % 2)
             {
                 case 0:
-                    _typeChocolate = TypeChocolate.Dark;
+                    _typeChocolate = "тёмный";
                     break;
                 case 1:
-                    _typeChocolate = TypeChocolate.Milky;
+                    _typeChocolate = "молочный";
                     break;
             }
+        }
+
+        public override string GetInformation()
+        {
+            return $"Вес: {_weight}\nНачинка: {_filling}\nКоличество плиток: {_countTiles}\nТип шоколада: {_typeChocolate}";
         }
     }
 }

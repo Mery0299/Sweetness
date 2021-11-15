@@ -6,18 +6,10 @@ using System.Threading.Tasks;
 
 namespace Sweetness.Types
 {
-    public enum TypeFruit
-    {
-        Apple,
-        Banana,
-        Melon,
-        Orange
-    }
-
     public class Fruit : Sweets
     {
         private byte _ripeness;
-        private TypeFruit _type;
+        private string _type;
 
         public Fruit()
         {
@@ -28,24 +20,29 @@ namespace Sweetness.Types
         {
             var random = new Random();
 
-            _weight = (byte)(random.Next() % 150 + 50);
+            _weight = (byte)(random.Next() % 950 + 50);
             _ripeness = (byte)(random.Next() % 101);
 
             switch (random.Next() % 4)
             {
                 case 0:
-                    _type = TypeFruit.Apple;
+                    _type = "яблоко";
                     break;
                 case 1:
-                    _type = TypeFruit.Banana;
+                    _type = "банан";
                     break;
                 case 2:
-                    _type = TypeFruit.Melon;
+                    _type = "дыня";
                     break;
                 case 3:
-                    _type = TypeFruit.Orange;
+                    _type = "апельсин";
                     break;
             }
+        }
+
+        public override string GetInformation()
+        {
+            return $"Вес: {_weight}\nВид фрукта: {_type}\nСпелость: {_ripeness}";
         }
     }
 }

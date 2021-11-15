@@ -6,16 +6,10 @@ using System.Threading.Tasks;
 
 namespace Sweetness.Types
 {
-    public enum TypeBarkey
-    {
-        Bun,
-        Pie,
-        CheeseCake
-    }
 
     public class Bakery : Sweets
     {
-        private TypeBarkey _type;
+        private string _type;
         private float _energyValue;
 
         public Bakery()
@@ -27,21 +21,26 @@ namespace Sweetness.Types
         {
             var random = new Random();
 
-            _weight = (byte)(random.Next() % 150 + 50);
+            _weight = (byte)(random.Next() % 200 + 50);
             _energyValue = random.Next() % 200 + 200;
 
             switch (random.Next() % 3)
             {
                 case 0:
-                    _type = TypeBarkey.Bun;
+                    _type = "булочка";
                     break;
                 case 1:
-                    _type = TypeBarkey.Pie;
+                    _type = "пирожок";
                     break;
                 case 2:
-                    _type = TypeBarkey.CheeseCake;
+                    _type = "ватрушка";
                     break;
             }
+        }
+
+        public override string GetInformation()
+        {
+            return $"Вес: {_weight}\nВид выпечки: {_type}\nЭнергетическая ценность: {_energyValue}";
         }
     }
 }
