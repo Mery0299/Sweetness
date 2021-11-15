@@ -42,7 +42,7 @@ namespace Sweetness.Types
 
         public override string GetInformation()
         {
-            return $"Фрукт\nВес: {_weight}\nВид фрукта: {_type}\nСпелость: {_ripeness}";
+            return $"Фрукт\nВес: {_weight} г.\nВид фрукта: {_type}\nСпелость: {_ripeness}%";
         }
     }
 }

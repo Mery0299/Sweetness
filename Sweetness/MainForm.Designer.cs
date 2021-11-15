@@ -39,7 +39,7 @@ namespace Sweetness
             // label_info
             // 
             this.label_info.AutoSize = true;
-            this.label_info.Location = new System.Drawing.Point(267, 83);
+            this.label_info.Location = new System.Drawing.Point(253, 85);
             this.label_info.Name = "label_info";
             this.label_info.Size = new System.Drawing.Size(81, 15);
             this.label_info.TabIndex = 1;
@@ -56,7 +56,7 @@ namespace Sweetness
             // 
             // button_take
             // 
-            this.button_take.Location = new System.Drawing.Point(323, 43);
+            this.button_take.Location = new System.Drawing.Point(305, 43);
             this.button_take.Name = "button_take";
             this.button_take.Size = new System.Drawing.Size(75, 23);
             this.button_take.TabIndex = 3;
@@ -66,7 +66,7 @@ namespace Sweetness
             // 
             // button_refill
             // 
-            this.button_refill.Location = new System.Drawing.Point(363, 9);
+            this.button_refill.Location = new System.Drawing.Point(321, 9);
             this.button_refill.Name = "button_refill";
             this.button_refill.Size = new System.Drawing.Size(119, 23);
             this.button_refill.TabIndex = 4;
@@ -80,14 +80,14 @@ namespace Sweetness
             this.listBox.ItemHeight = 15;
             this.listBox.Location = new System.Drawing.Point(13, 43);
             this.listBox.Name = "listBox";
-            this.listBox.Size = new System.Drawing.Size(238, 259);
+            this.listBox.Size = new System.Drawing.Size(223, 184);
             this.listBox.TabIndex = 5;
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(494, 312);
+            this.ClientSize = new System.Drawing.Size(452, 238);
             this.Controls.Add(this.listBox);
             this.Controls.Add(this.button_refill);
             this.Controls.Add(this.button_take);
