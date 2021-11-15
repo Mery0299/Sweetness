@@ -13,8 +13,8 @@ namespace Sweetness
 {
     public partial class MainForm : Form
     {
-        private List<Sweets> _listSweets;
-        private List<string> _listTypes;
+        private List<Sweets> _listSweets = new List<Sweets>();
+        private List<string> _listTypes = new List<string>();
 
         private byte _countChocolade;
         private byte _countBakery;
@@ -26,6 +26,15 @@ namespace Sweetness
         public MainForm()
         {
             InitializeComponent();
+        }
+
+        private void MainForm_Load(object sender, EventArgs e)
+        {
+            CreateList();
+
+            listBox.DataSource = _listTypes;
+            label_count.Text = _count;
+            label_info.Text = "";
         }
 
         private void CreateList()
@@ -60,6 +69,8 @@ namespace Sweetness
                         break;
                 }
             }
+
+            _count = $"Шоколадок: {_countChocolade}   Выпечек: {_countBakery}   Фруктов: {_countFruit}";
         }
 
         private void TakeSweet()
@@ -67,17 +78,14 @@ namespace Sweetness
             if (_listSweets.Any())
             {
                 if (_listSweets[0] is Chocolate)
-                {
                     _countChocolade--;
-                }
                 else if (_listSweets[0] is Bakery)
-                {
                     _countBakery--;
-                }
                 else if (_listSweets[0] is Fruit)
-                {
                     _countFruit--;
-                }
+
+                _information = _listSweets[0].GetInformation();
+                _count = $"Шоколадок: {_countChocolade}   Выпечек: {_countBakery}   Фруктов: {_countFruit}";
 
                 _listSweets.RemoveAt(0);
                 _listTypes.RemoveAt(0);
@@ -86,6 +94,26 @@ namespace Sweetness
             {
                 _information = "Автомат пуст";
             }
+        }
+
+        private void button_refill_Click(object sender, EventArgs e)
+        {
+            CreateList();
+
+            listBox.DataSource = null;
+            listBox.DataSource = _listTypes;
+            label_count.Text = _count;
+            label_info.Text = "";
+        }
+
+        private void button_take_Click(object sender, EventArgs e)
+        {
+            TakeSweet();
+
+            listBox.DataSource = null;
+            listBox.DataSource = _listTypes;
+            label_count.Text = _count;
+            label_info.Text = _information;
         }
     }
 }

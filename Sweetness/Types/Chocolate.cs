@@ -57,7 +57,7 @@ namespace Sweetness.Types
 
         public override string GetInformation()
         {
-            return $"Вес: {_weight}\nНачинка: {_filling}\nКоличество плиток: {_countTiles}\nТип шоколада: {_typeChocolate}";
+            return $"Шоколадка\nВес: {_weight}\nНачинка: {_filling}\nКоличество плиток: {_countTiles}\nТип шоколада: {_typeChocolate}";
         }
     }
 }
